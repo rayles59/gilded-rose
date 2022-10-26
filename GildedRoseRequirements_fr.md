@@ -4,7 +4,7 @@ Bonjour et bienvenue dans l'équipe de la Rose dorée. Comme vous le savez, notr
 
 Votre mission est d'ajouter une nouvelle fonctionnalité à notre système pour que nous puissions commencer à vendre un nouveau type de produits. Mais d'abord, laissez-moi vous présenter notre système :
 
-- Tous les éléments ont une valeur `sellIn` qui désigne le nombre de jours restant pour vendre l'article
+- Tous les éléments ont une valeur `sellIn` qui dqésigne le nombre de jours restant pour vendre l'article
 - Tous les articles ont une valeur `quality` qui dénote combien l'article est précieux
 - À la fin de chaque journée, notre système diminue ces deux valeurs pour chaque produit
 

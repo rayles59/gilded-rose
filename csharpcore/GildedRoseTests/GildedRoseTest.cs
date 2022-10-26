@@ -10,7 +10,9 @@ namespace GildedRoseTests
         [TestMethod]
         public void Should_Build()
         {
-            GildedRose shop = new GildedRose();
+            Article a = new Article();
+            GildedRose shop = new GildedRose(a);
+            // Assert.AreEqual("c", shop.test);
         }
     }
 }
