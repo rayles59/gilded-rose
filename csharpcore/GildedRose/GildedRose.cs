@@ -10,7 +10,7 @@ namespace GildedRoseKata
             this.article = article;
         }
 
-        public void endDay(){
+        public void eachDay(){
             try{
 
                 this.article.quality = this.updateQuality(this.article.sellIn,this.article.quality,this.article.peremption);
