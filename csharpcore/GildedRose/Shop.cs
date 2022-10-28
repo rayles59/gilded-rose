@@ -18,6 +18,10 @@ namespace GildedRoseKata
                 item.update();
             }
         }
+
+        public void sellItem(string type, int quality){
+
+        }
         
     }
 }

@@ -16,5 +16,9 @@ namespace GildedRoseKata{
         {
 
         }  
+
+        protected void FindItem(string type, int quality ){
+
+        }
     }
 }

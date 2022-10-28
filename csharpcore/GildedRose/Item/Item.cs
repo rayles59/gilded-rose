@@ -8,6 +8,7 @@ namespace GildedRoseKata
         public string Name {get;protected set;}
         public int sellIn{get;protected set;}
         public int Quality{get;protected set;}
+        public int basePrice{get;protected set;}
 
         public Item (string Name, int sellIn, int Quality){
             this.Name = Name;
