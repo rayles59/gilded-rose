@@ -4,11 +4,11 @@ using System.Collections.Generic;
 namespace GildedRoseKata{
     abstract public class ItemRepository{
 
-        private Item item;
-        public ItemRepository(Item item){
+        private List<Item> item;
+        public ItemRepository(List<Item> item){
             this.item = item;
         }
-        protected Item GetInventory()
+        protected List<Item> GetInventory()
         {
             return item;
         }

@@ -25,7 +25,7 @@ namespace GildedRoseKata
 
         protected void CeilQualityToFifty()
         {
-            if(this.Quality < 50)
+            if(this.Quality > 50)
                 this.Quality = 50;
         }
 

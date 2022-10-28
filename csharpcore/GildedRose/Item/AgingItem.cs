@@ -14,6 +14,7 @@ namespace GildedRoseKata
         public override void update()
         {
             this.UpdateSellIn();
+            this.UpdateQuality();
         }
 
         private void UpdateSellIn(){
