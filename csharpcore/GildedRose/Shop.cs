@@ -5,9 +5,9 @@ namespace GildedRoseKata
 {
     public class Shop
     {
-        public IList<Item> Items{get;set;}
+        public List<Item> Items{get;set;}
 
-        public Shop(IList<Item> Items)
+        public Shop(List<Item> Items)
         {
             this.Items = Items;
         }
