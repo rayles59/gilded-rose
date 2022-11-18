@@ -2,12 +2,9 @@ using System;
 using System.Collections.Generic;
 
 namespace GildedRoseKata{
-    public class InMemoryItemsRepository : ItemRepository
+    public class InMemoryItemsRepository 
     {
-        public InMemoryItemsRepository(List<Item> item) 
-        : base(item)
-        {}
-
+    
 
     }
 }

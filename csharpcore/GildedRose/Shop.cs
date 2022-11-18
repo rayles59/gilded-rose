@@ -6,10 +6,16 @@ namespace GildedRoseKata
     public class Shop
     {
         public List<Item> Items{get;set;}
+        public double solde;
 
         public Shop(List<Item> Items)
         {
             this.Items = Items;
+        }
+
+        public double TotalSold(double value)
+        {
+            return this.solde += value;
         }
 
         public void UpdateQuality()
@@ -19,8 +25,9 @@ namespace GildedRoseKata
             }
         }
 
-        public void sellItem(string type, int quality){
-
+        public void sellItem(Item item, List<Item> items){
+            Items.Remove(item);
+           
         }
         
     }

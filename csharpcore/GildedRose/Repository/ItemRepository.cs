@@ -1,24 +1,12 @@
 using System;
 using System.Collections.Generic;
 
-namespace GildedRoseKata{
-    abstract public class ItemRepository{
-
-        private List<Item> item;
-        public ItemRepository(List<Item> item){
-            this.item = item;
-        }
-        protected List<Item> GetInventory()
-        {
-            return item;
-        }
-        protected void SaveInventory(IList<Item> item)
-        {
-
-        }  
-
-        protected void FindItem(string type, int quality ){
-
-        }
+namespace GildedRoseKata
+{
+    public interface ItemRepository
+    {
+        List<Item> GetInventory();
+        void SaveInventory(List<Item> item);
+        Item FindItem(string type, int quality);
     }
 }
