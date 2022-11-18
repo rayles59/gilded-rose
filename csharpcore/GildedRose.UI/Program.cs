@@ -33,15 +33,23 @@ namespace GildedRoseKata
                     break;
                 // Afficher les soldes du magasins
                 case "2":
+                    this.SoldMagasin(repository.GetInventory(), shop);
                     break;
                 // vendre un article
                 case "3":
                     var item = repository.FindItem("Classic", 8);
-                    Console.WriteLine(item.Name +" "+ item.Quality +" "+ item.sellIn);
                     shop.sellItem(item, items);
-                    Console.WriteLine(items.Count);
+                    break;
+                 case "4":
+                    shop.UpdateQuality();
                     break;
             }
+        }
+        public void SoldMagasin(List<Item> items, Shop shop){
+            foreach(Item i in items){
+                shop.TotalSold(i.sellIn);
+            }
+            
         }
         static void Main(string[] args)
         {
@@ -49,6 +57,8 @@ namespace GildedRoseKata
             Console.WriteLine("taper 1 pour afficher les articles");
             Console.WriteLine("taper 2 pour afficher le solde du magasin ");
             Console.WriteLine("taper 3 pour vendre un article"); 
+            Console.WriteLine("taper 4 pour update les items"); 
+
             var action = Console.ReadLine();
             if(action != string.Empty)
                 p.ChooseActionShop(action);
