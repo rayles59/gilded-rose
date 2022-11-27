@@ -59,7 +59,7 @@ namespace GildedRoseKata
 
         public void StartAuction(Shop shop, ItemRepository repository){
             /*
-               ici on prédéfinit l'item, on pourrait très bien le faire choisir par l'utilisateur avec des Console.readLine()
+               ici on pré-définit l'item, on pourrait très bien le faire choisir par l'utilisateur avec des Console.readLine()
                en le passant en paramètre de la méthode findItem
             */
             var item = repository.FindItem("Classic", 8);
