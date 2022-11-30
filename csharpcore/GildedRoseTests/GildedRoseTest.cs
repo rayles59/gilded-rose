@@ -27,17 +27,6 @@ namespace GildedRose
             this.shop.UpdateQuality();
         }
 
-        // [TestMethod]
-        // public void Should_UpdateItemProperties(){
-        //     Assert.AreEqual(9, this.shop.Items[0].sellIn);
-        //     Assert.AreEqual(7, this.shop.Items[0].Quality);
-        // }
-
-        // [TestMethod]
-        // public void Should_DecreaseQualityTwiceAsFastAfterExpiration(){
-        //     Assert.AreEqual(6, this.shop.Items[1].Quality);
-        // }
-
         [TestMethod]
         public void Should_NotHaveNegativeQuality(){
             Assert.AreEqual(0, this.shop.Items[2].Quality);
@@ -79,9 +68,5 @@ namespace GildedRose
             Assert.AreEqual(0, this.shop.Items[9].Quality);
         }
 
-        // [TestMethod]
-        // public void Should_DecreaseConjuredItemsTwiceAsFastAsGenericItems(){
-        //     Assert.AreEqual(6, this.shop.Items[10].Quality);
-        // }
     }
 }
