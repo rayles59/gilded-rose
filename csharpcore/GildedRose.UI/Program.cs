@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using GildedRoseKata;
+using System.Net.Mail;
+using System.Net;
 
 namespace GildedRoseKata
 {
@@ -8,6 +10,7 @@ namespace GildedRoseKata
     {
         public void ChooseActionShop(string action)
         {
+
             List<Item> items = new List<Item>(){
                 new GenericItem("Classic", 10, 8),
                 new GenericItem("Classic", -1, 8),
@@ -20,73 +23,57 @@ namespace GildedRoseKata
                 new EventItem("Backstage Pass", 5, 10),
                 new EventItem("Backstage Pass", 0, 10)
             };
+
             ItemRepository repository = new FileItemRepository(items);
             Shop shop = new Shop(items);
             switch (action)
             {
                 //Afficher les articles
-                case "1":                    
-                    var inventory = repository.GetInventory();
-                    foreach(var i in inventory){
-                        Console.WriteLine(i.Name +" "+ i.Quality +" "+ i.sellIn);
-                    }
+                case "1":
+                    shop.showArticle(repository);
                     break;
                 // Afficher les soldes du magasins
                 case "2":
-                    this.SoldMagasin(repository.GetInventory(), shop);
+                    Console.WriteLine("Le total du magasin est de : " + shop.SoldMagasin(repository.GetInventory(), shop));
                     break;
                 // vendre un article
                 case "3":
                     var item = repository.FindItem("Classic", 8);
                     shop.sellItem(item, items);
+                    shop.showArticle(repository);
                     break;
                 case "4":
                     //met à jour la qualité
                     shop.UpdateQuality();
+                    shop.showArticle(repository);
                     break;
                 case "5":
                     //lance une vente au enchère
-                    this.StartAuction(shop, repository);
-                    
+                    shop.StartAuction(shop, repository);
+                    break;
+                case "6":
                     break;
             }
-        }
-        public void SoldMagasin(List<Item> items, Shop shop){
-            foreach(Item i in items){
-                shop.TotalSold(i.sellIn);
-            }
+            Console.WriteLine("Appuyer sur entrer");
         }
 
-        public void StartAuction(Shop shop, ItemRepository repository){
-            /*
-               ici on pré-définit l'item, on pourrait très bien le faire choisir par l'utilisateur avec des Console.readLine()
-               en le passant en paramètre de la méthode findItem
-            */
-            var item = repository.FindItem("Classic", 8);
-            var valueFinaleOfItem = item.sellIn;
-            for(int i = 0; i < 3; i++)
-            {
-                Console.WriteLine("la valueur actuelle de l'item est de : "+valueFinaleOfItem);
-                Console.WriteLine("Veuillez entre votre mise");
-                var amount = Convert.ToInt16(Console.ReadLine());
-                var value = shop.roundAuction(valueFinaleOfItem, amount);
-                valueFinaleOfItem = value; 
-            }
-            Console.WriteLine("l'enchère gagnante est de : "+valueFinaleOfItem);
-        }
         static void Main(string[] args)
         {
             Program p = new Program();
             Console.WriteLine("taper 1 pour afficher les articles");
             Console.WriteLine("taper 2 pour afficher le solde du magasin ");
-            Console.WriteLine("taper 3 pour vendre un article"); 
-            Console.WriteLine("taper 4 pour update les items"); 
-            Console.WriteLine("taper 5 pour commencer la vente au enchère"); 
+            Console.WriteLine("taper 3 pour vendre un article");
+            Console.WriteLine("taper 4 pour update les items");
+            Console.WriteLine("taper 5 pour commencer la vente au enchère");
 
             var action = Console.ReadLine();
-            if(action != string.Empty)
+            if (action != string.Empty)
                 p.ChooseActionShop(action);
             Console.ReadKey();
+
+
         }
+
+
     }
 }
